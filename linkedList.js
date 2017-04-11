@@ -1,8 +1,3 @@
-/**
-* sort the single link list using mergesort
-*
-*/
-
 function LinkedList(){
 	this.head = null;
 }
@@ -36,32 +31,35 @@ LinkedList.prototype.print = function(){
 }
 
 function Merge(list1, list2){
+	debugger;
+	console.log("Inside the merged list");
 	
 	var mergedList = new LinkedList();
-	var leftList = list1.head;
-	var rightList = list2.head;
+	var leftPtr = list1.head;
+	var rightPtr = list2.head;
 	
 	/**
 	*@desc: method to copy the node data and move the point to next location
+	*@return: next refernce 
 	*/
-	var clone(node){
+	var cloneAndMove = function(node){
 		mergedList.push(node.data);
-		node = node.next;
+		return node.next;
 	}
 	
-	while(leftList && rightList){
-		if(leftList.data < rightList.data){
-			clone(leftList);
+	while(leftPtr && rightPtr){
+		if(leftPtr.data < rightPtr.data){
+			leftPtr = cloneAndMove(leftPtr);
 		}
 		else{
-			clone(rightList);
+			rightPtr = cloneAndMove(rightPtr);
 		}
 	}
-	while(leftList){
-		clone(leftList);
+	while(leftPtr){
+		leftPtr = cloneAndMove(leftPtr);
 	}
-	while(rightList){
-		clone(rightList);
+	while(rightPtr){
+		rightPtr = cloneAndMove(rightPtr);
 	}
 	
 	return mergedList;
@@ -72,7 +70,8 @@ function MergeSort(list) {
 	var partitionList = function(list){
 		
 		var slowPtr,fastPtr;
-		//empty linked list
+		
+		//empty linked list/list with one element
 		if(!list || !list.head){
 			return {left: null, right: null};
 		}
