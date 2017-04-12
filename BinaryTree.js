@@ -131,3 +131,5 @@ node.insertLeft(4);
 node= node.insertRight(12);
 node.insertLeft(10);
 node.insertRight(14);
+
+LeastCommonAncestor(tree,4,14);
