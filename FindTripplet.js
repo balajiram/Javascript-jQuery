@@ -1,11 +1,8 @@
-Find a triplet that sum to a given value
-
-var arr =[12, 3, 4, 1, 6, 9];
-var tot = arr.length;
-var sol=[];
-
-value = 24;
-
+/*Find a triplet that sum to a given value
+ Sample:-  
+  Input: arr =[12, 3, 4, 1, 6, 9], value = 24;
+  Output: [12,3,9];
+*/
 findTripplets([12, 3, 4, 1, 6, 9],24);
 
 function findTripplets(arr, value){
@@ -16,15 +13,17 @@ function findTripplets(arr, value){
   var tot = arr.length;
 	for(var i =0;i<tot;i++){
 	   var firstElement = arr[i];
+	   //if firstElement greater than value	
 	   if(firstElement > value){
 	    continue;
-		}
+	   }
 	   for(var j=i+1;j<tot;j++){
 		 var secondElement = arr[j];
 		 var sum = firstElement+secondElement;
+		 //if first two elements sum greater than value
 		 if(sum > value){
 		   continue;
-		 }
+		 } 
 		 var remain = value-sum;
 		 var thirdElementPosition = arr.indexOf(remain);
 		 if(thirdElementPosition !== -1 && thirdElementPosition > j){
