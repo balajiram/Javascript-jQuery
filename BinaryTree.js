@@ -136,6 +136,20 @@ function isBalancedNode(node){
    return (-1<= diff && diff <=1);
 }
 
+function isBinarySearchTree(node){
+  if(!node){
+   return true;
+  }
+  else{
+    if(isBinarySearchNode(node)){
+	  console.log("*");
+	  return isBinarySearchTree(node.left) && isBinarySearchTree(node.right);
+	}
+	else{
+	  return false;
+	}
+  }
+}
 
 var tree = new BinaryTree(20);
 tree.root.insertRight(22);
