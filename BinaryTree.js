@@ -121,7 +121,20 @@ function LeastCommonAncestor(tree, data1, data2){
 	}
 }
 
+function isBalancedBinaryTree(tree){
+   if(isBalancedNode(tree)){
+    return (isBalancedNode(tree.left) && isBalancedNode(tree.right));
+   }
+   return false;
+}
 
+function isBalancedNode(node){
+   leftChildHeight = height(tree.left);
+   rightChildHeight = height(tree.right);
+   var diff = leftChildHeight - rightChildHeight;
+   
+   return (-1<= diff && diff <=1);
+}
 
 
 var tree = new BinaryTree(20);
